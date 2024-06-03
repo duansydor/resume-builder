@@ -1,0 +1,14 @@
+{
+    "Header":{
+        "logo":"Currículo"
+    },
+    "Index":{
+        "title":"Olá Mundo!"
+    },
+    "App":{
+        "title":"Comece com um template",
+        "condition":"Ou",
+        "cta":"Modelo básico",
+        "note":"Isto abrirá um modelo básico, você pode mudar mais tarde"
+    }
+}

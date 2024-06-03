@@ -1,0 +1,14 @@
+{
+    "Header": {
+        "logo": "Resume"
+    },
+    "Index": {
+        "title": "Hello World!"
+    },
+    "App":{
+        "title":"Start with a template",
+        "condition":"Or",
+        "cta":"Start blank",
+        "note":"It will open a default model, you can always change it later"
+    }
+}
