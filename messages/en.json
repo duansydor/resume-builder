@@ -10,5 +10,23 @@
         "condition":"Or",
         "cta":"Start blank",
         "note":"It will open a default model, you can always change it later"
+    },
+    "ComponentsName":{
+        "Header":"Personal Information",
+        "Experience":"Experience",
+        "ObjectiveResume":"Goal",
+        "EducationResume":"Education"
+    },
+    "FieldNames":{
+        "name":"Name",
+        "role":"Field Role",
+        "address":"Address",
+        "phone":"Telephone Number",
+        "email":"Email",
+        "website":"Website",
+        "linkedin":"Link to Linkedin Profile",
+        "github":"Link to Github",
+        "title":"e.g:Goal",
+        "content":"Content"
     }
 }

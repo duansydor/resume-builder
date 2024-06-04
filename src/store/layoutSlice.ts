@@ -3,6 +3,7 @@ import { LayoutItemType } from '@/types'
 type layoutSlice = {
     layout: LayoutItemType[],
     // pushLayoutItem: (item: LayoutItemType) => void,
+    setLayout: (layout: LayoutItemType[]) => void,
     removeLayoutItem: (key: string) => void,
     pushLayoutItem: (item: LayoutItemType) => void,
 }
@@ -23,10 +24,5 @@ export const createLayoutSlice = (set:any, get:any):layoutSlice => ({
     set((state: { layout: any[] }) => ({
       layout: [...state.layout, item],
     })),
-    
-    // removeLayoutItem: (key: string) => {
-    //     set((state: { layout: any[] }) => ({
-    //         layout: state.layout.filter((item: any) => item.i !== key),
-    //     }))
-    // }
+    setLayout: (layout: LayoutItemType[]) => set({ layout })
 })

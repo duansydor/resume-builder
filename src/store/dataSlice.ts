@@ -1,6 +1,7 @@
 import { ResumeHeaderInfo } from "@/types"
 
 
+
 type dataSlice = {
     componentData:any,
     setComponentData:(key:string, data:any) => void

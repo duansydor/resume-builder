@@ -14,7 +14,7 @@ const ObjectiveResume = () => {
             return (
               <div key={key}>
                 {key === 'title' ? <h1 className='text-3xl font-bold '>{value}</h1> :
-                  <h3 className={`${key === 'role' ? '-mt-2' : ''}`}>{value}</h3>
+                  <div className='text-justify w-full p-2 max-h-40 break-words'><p className='text-clip'>{value}</p></div>
 
                 }
               </div>

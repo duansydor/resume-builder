@@ -10,5 +10,23 @@
         "condition":"Ou",
         "cta":"Modelo básico",
         "note":"Isto abrirá um modelo básico, você pode mudar mais tarde"
+    },
+    "ComponentsName":{
+        "Header":"Informações Pessoais",
+        "Experience":"Experiência",
+        "ObjectiveResume":"Objetivo",
+        "EducationResume":"Escolaridade"
+    },
+    "FieldNames":{
+        "name":"Nome",
+        "role":"Área de atuação",
+        "address":"Endereço",
+        "phone":"Telefone",
+        "email":"Email",
+        "website":"Site",
+        "linkedin":"Linkedin",
+        "github":"Github",
+        "title":"ex:Objetivo",
+        "content":"Contéudo"
     }
 }
