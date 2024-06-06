@@ -15,7 +15,9 @@
         "Header":"Personal Information",
         "Experience":"Experience",
         "ObjectiveResume":"Goal",
-        "EducationResume":"Education"
+        "EducationResume":"Education",
+        "LanguageResume":"Languages"
+
     },
     "FieldNames":{
         "name":"Name",

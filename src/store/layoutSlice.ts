@@ -12,6 +12,7 @@ const itens = [
     { i: "b", x: 0, y: 0, w: 12, h: 2, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
     { i: "c", x: 0, y: 0, w: 12, h: 2, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
     { i: "d", x: 0, y: 0, w: 12, h: 2, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
+    { i: "e", x: 0, y: 0, w: 12, h: 2, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
 ] as LayoutItemType[]
 export const createLayoutSlice = (set:any, get:any):layoutSlice => ({
     layout: itens,

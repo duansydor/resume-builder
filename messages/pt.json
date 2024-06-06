@@ -15,7 +15,8 @@
         "Header":"Informações Pessoais",
         "Experience":"Experiência",
         "ObjectiveResume":"Objetivo",
-        "EducationResume":"Escolaridade"
+        "EducationResume":"Escolaridade",
+        "LanguageResume":"Idiomas"
     },
     "FieldNames":{
         "name":"Nome",
@@ -26,7 +27,13 @@
         "website":"Site",
         "linkedin":"Linkedin",
         "github":"Github",
-        "title":"ex:Objetivo",
-        "content":"Contéudo"
+        "objective":"ex:Objetivo",
+        "objectiveContent":"Contéudo",
+        "experience":"Experiência",
+        "experienceContent":"Contéudo",
+        "language":"ex:Objetivo",
+        "languageContent":"Contéudo",
+        "education":"ex:Objetivo",
+        "educationContent":"Contéudo"
     }
 }
