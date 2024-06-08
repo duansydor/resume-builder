@@ -1,89 +1,128 @@
-import { ResumeHeaderInfo } from "@/types"
-import { uuid } from "uuidv4"
+import { BasicFieldsType, EducationType, ExperienceType, LanguagesFieldsType } from "@/types";
 
 
-
-type dataSlice = {
-  componentData: any,
-  setComponentData: (key: string, data: any) => void,
-  setLanguages: (id: number, language: string, level: string) => void,
-  deleteLanguage: (id: number) => void,
-  addLanguage: (language: string, level: string) => void,
-}
-
-
-const header = {
+const basicFields:BasicFieldsType = {
   name: 'John Doe',
   role: 'Web Designer',
   address: '123 Main Street, Anytown, CA 12345',
   phone: '(123) 456-7890',
   email: 'john.doe@email.com',
-  website: 'www.johndoe.com',
-  linkedin: 'linkedin.com/in/john-doe',
-  github: 'github.com/john-doe'
+  goals: 'To Manage this enterprise',
 }
-const goals = {
-  objective: 'Carreira',
-  objectiveContent: 'conteudo aqui tem'
-}
-const experiences = [
+const languagesFields: LanguagesFieldsType[] = [
   {
-    id:1,
-    place:'Nasa',
-    position:'de quatro',
-    date:'2021-2022',
-    description:'Fiz coisas no espaço'
-  },
-  {
-    id:2,
-    place:'Google',
-    position:'de 5',
-    date:'2022-2023',
-    description:'roubei dados de pessoas'
+    id: '1',
+    name: 'English',
+    level: 'Basic'
   }
 ]
-const education = {
-  education: 'Education',
-  educationContent: []
-}
-const languages = [
+const experiencesFields:ExperienceType[] = [
   {
-    id: 2,
-    language: 'English',
-    level: 'Beginner'
-  },
-  {
-    id: 1,
-    language: 'Spanish',
-    level: 'Intermediate'
+    id:'1',
+    company:'CompanyFake',
+    position:'to fake fake news',
+    dateRange:'2021-2022',
+    description:'Using fake news to expread the fake philosophy'
   }
 ]
-export const createDataSlice = (set: any, get: any): dataSlice => ({
-  componentData: { a: header, b: goals, c: experiences, d: education, e: languages },
-  setComponentData: (key: string, data: any) =>
-    set((state: { componentData: any }) => ({
-      componentData: { ...state.componentData, [key]: data },
-    })),
-  setLanguages(id, language, level) {
-    const languages = get().componentData.e
-    const index = languages.findIndex((l: any) => l.id === id)
-    if (index !== -1) {
-      languages[index].language = language
-      languages[index].level = level
-    }
-    set((state:{componentData:any}) => ({ componentData: { ...state.componentData, e: languages } }))
-  },
-  deleteLanguage(id) {
-    const languages = get().componentData.e
-    const index = languages.findIndex((l: any) => l.id === id)
-    if (index !== -1) {
-      languages.splice(index, 1)
-    }
-    set((state:{componentData:any})  => ({ componentData: { ...state.componentData, e: languages } }))
-  },
-  addLanguage: (language, level) => {
-    const languages = get().componentData.e
-    languages.push({ id: uuid(), language, level })
-    set((state:{componentData:any}) => ({ componentData: { ...state.componentData, e: languages } }))
+const educationFields:EducationType[] = [
+  {
+    id:'1',
+    school:'University Test',
+    degree:'1st degree',
+    dateRange:'2021-2022',
+    description:'Some description'
   }
+]
+type BasicFieldsSliceType = {
+  fields: BasicFieldsType,
+  languages: LanguagesFieldsType[],
+  experiences: ExperienceType[],
+  education: EducationType[],
+  setField: (field: keyof BasicFieldsType, data: string) => void,
+  setLanguage: (id: string, language: LanguagesFieldsType) => void,
+  addLanguage:(language:LanguagesFieldsType)=>void,
+  removeLanguage:(id:string)=>void,
+  setExperience: (id:string, experience: ExperienceType) => void,
+  addExperience:(experience:ExperienceType)=>void,
+  removeExperience: (id: string) => void,
+  setEducation: (id:string,education: EducationType) => void,
+  addEducation: (education: EducationType) => void,
+  removeEducation: (id: string) => void,
+}
+
+export const createBasicFieldsSlice = (set: any, get: any): BasicFieldsSliceType => ({
+  fields: basicFields,
+  languages: languagesFields,
+  experiences: experiencesFields,
+  education: educationFields,
+  setField: (field, data) => {
+    set((state: any) => ({
+      ...state,
+      fields: {
+        ...state.fields,
+        [field]: data
+      }
+    }))
+  },
+  setLanguage: (id, newLanguage) => {
+    set((state: any) => ({
+      ...state,
+      languages: state.languages.map((lang: any) =>
+        lang.id === id ? newLanguage : lang
+      )
+    }))
+  },
+  addLanguage: (language) => {
+    set((state: any) => ({
+      ...state,
+      languages: [...state.languages, language]
+    }))
+  },
+  removeLanguage(id) {
+    set((state: any) => ({
+      ...state,
+      languages: state.languages.filter((lang: any) => lang.id !== id)
+    }))
+  },
+  setExperience(id,experience) {
+    set((state: any) => ({
+      ...state,
+      experiences: state.experiences.map((lang: any) =>
+        lang.id === id ? experience : lang
+      )
+    }))
+  },
+  addExperience(experience) {
+    set((state: any) => ({
+      ...state,
+      experiences: [...state.experiences, experience]
+    }))
+  },
+  removeExperience(id) {
+    set((state: any) => ({
+      ...state,
+      experiences: state.experiences.filter((lang: any) => lang.id !== id)
+    }))
+  },
+  setEducation(id,education) {
+    set((state: any) => ({
+      ...state,
+      education: state.education.map((lang: any) =>
+        lang.id === id ? education : lang
+      )
+    }))
+  },
+  addEducation(education) {
+    set((state: any) => ({
+      ...state,
+      education: [...state.education, education]
+    }))
+  },
+  removeEducation(id) {
+    set((state: any) => ({
+      ...state,
+      education: state.education.filter((lang: any) => lang.id !== id)
+    }))
+  },
 });

@@ -27,8 +27,36 @@ export interface LayoutItemType {
 
 export interface componentsType {
     // { name: 'Header', component: ResumeHeader, i:"a", isHidden: true },
+    i:string,
     name:string,
     component:() => JSX.Element,
-    i:string,
+    editComponent:() => JSX.Element,
     isHidden:boolean
 }
+export type BasicFieldsType = {
+    name: string,
+    role: string,
+    address: string,
+    phone: string,
+    email: string,
+    goals: string
+  }
+  export type LanguagesFieldsType = {
+    id: string,
+    name: string,
+    level: string
+  }
+  export type ExperienceType = {
+    id: string,
+    company: string,
+    position: string,
+    dateRange: string,
+    description: string,
+  }
+  export type EducationType = {
+    id:string,
+    school: string,
+    degree: string,
+    dateRange: string,
+    description: string,
+  }

@@ -11,14 +11,15 @@
         "cta":"Modelo básico",
         "note":"Isto abrirá um modelo básico, você pode mudar mais tarde"
     },
-    "ComponentsName":{
-        "Header":"Informações Pessoais",
-        "Experience":"Experiência",
-        "ObjectiveResume":"Objetivo",
-        "EducationResume":"Escolaridade",
-        "LanguageResume":"Idiomas"
+    "Components":{
+        "header":"Informações Pessoais",
+        "experiences":"Experiência",
+        "goal":"Objetivo",
+        "education":"Escolaridade",
+        "languages":"Idiomas"
     },
-    "FieldNames":{
+    "Fields":{
+        
         "name":"Nome",
         "role":"Área de atuação",
         "address":"Endereço",
@@ -27,13 +28,18 @@
         "website":"Site",
         "linkedin":"Linkedin",
         "github":"Github",
-        "objective":"ex:Objetivo",
-        "objectiveContent":"Contéudo",
-        "experience":"Experiência",
-        "experienceContent":"Contéudo",
-        "language":"ex:Objetivo",
-        "languageContent":"Contéudo",
-        "education":"ex:Objetivo",
-        "educationContent":"Contéudo"
+        "goal":"ex:Objetivo",
+        "language":"Idiomas",
+        "level":"Nível",
+        "company":"Empresa",
+        "position":"Cargo",
+        "daterange":"Período",
+        "description":"Descrição",
+        "school":"Escola/Universidade",
+        "degree":"Curso"
+
+        
+
+
     }
 }

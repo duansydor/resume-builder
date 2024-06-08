@@ -11,15 +11,14 @@
         "cta":"Start blank",
         "note":"It will open a default model, you can always change it later"
     },
-    "ComponentsName":{
-        "Header":"Personal Information",
-        "Experience":"Experience",
-        "ObjectiveResume":"Goal",
-        "EducationResume":"Education",
-        "LanguageResume":"Languages"
-
+    "Components":{
+        "header":"Personal Information",
+        "experiences":"Experience",
+        "goal":"Goal",
+        "education":"Education",
+        "languages":"Languages"
     },
-    "FieldNames":{
+    "Fields":{
         "name":"Name",
         "role":"Field Role",
         "address":"Address",
@@ -28,7 +27,14 @@
         "website":"Website",
         "linkedin":"Link to Linkedin Profile",
         "github":"Link to Github",
-        "title":"e.g:Goal",
-        "content":"Content"
+        "language":"Languages",
+        "level":"Level",
+        "goal":"e.g:Goal",
+        "company":"Company",
+        "position":"Position",
+        "daterange":"Date Range",
+        "description":"Description",
+        "school":"School/University",
+        "degree":"Degree"
     }
 }
