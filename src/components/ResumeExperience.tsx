@@ -56,7 +56,8 @@ export const ResumeExperienceEdit = () => {
 
               })}
             >
-              Add Experience
+              {buttonTranslation('addfield')}
+
             </button>
           </div>
           :
@@ -76,7 +77,7 @@ const ResumeExperience = () => {
       <h1 className='text-2xl font-bold underline'>{translation('experiences')}</h1>
       {experiences.map((experience) => {
         return (
-          <div className='flex flex-col'>
+          <div key={experience.id} className='flex flex-col'>
             <span className='font-bold w-full'>{experience.company}</span>
             <span className='w-full'>{experience.dateRange}</span>
             <span className='w-full'>{experience.position}</span>

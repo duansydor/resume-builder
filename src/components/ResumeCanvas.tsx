@@ -41,29 +41,30 @@ const ResumeCanvas = () => {
   useEffect(() => {
     if (triggerExport) {
       domtoimage.toPng(divToCapture)
-      .then(function (dataUrl: any) {
-        const pdf = new jsPDF();
+        .then(function (dataUrl: any) {
+          const pdf = new jsPDF();
 
-        pdf.addImage(dataUrl, 'PNG', 5, 10, 0, 0); // Adjust position as needed
-        pdf.save('download.pdf');
-      })
-      .catch(function (error:any) {
-        console.error('oops, something went wrong!', error);
-      });
+          pdf.addImage(dataUrl, 'PNG', 5, 10, 0, 0); // Adjust position as needed
+          pdf.save('download.pdf');
+        })
+        .catch(function (error: any) {
+          console.error('oops, something went wrong!', error);
+        });
       setTriggerExport(false)
     }
   }, [triggerExport])
   return (
     <div ref={textContentRef} className='mt-20 w-screen min-h-screen flex flex-col items-center overflow-x-scroll'>
       <div className='mb-10 flex flex-col items-center gap-2'>
-        <button className="bg-primary text-2xl p-2 text-white rounded-md w-fit" onClick={() => setTriggerExport(true)}>{buttonTranslation('export')}</button>
+        <button className="border-2 border-primary text-xl p-2 text-primary rounded-md w-fit" onClick={() => setTriggerExport(true)}>{buttonTranslation('export')}</button>
+
         <span>{buttonTranslation('explanation')}</span>
       </div>
       <div className="">
-            
-        <div className={`relative ${triggerExport?'left-20':'-ml-96'}`} id="mydiv">
-          <GridLayout
 
+        <div className={`relative ${triggerExport ? 'left-20' : '-ml-96'}`} id="mydiv">
+          <GridLayout
+            isDraggable={false}
             layout={boundedStore.layout}
             cols={12}
             width={720}

@@ -47,7 +47,9 @@ export const ResumeLanguagesEdit = () => {
                         {
                             store.languages.map(language => {
                                 return (
-                                    <EditLanguageInputField language={language} store={store} />
+                                    <div key={language.id} >
+                                        <EditLanguageInputField language={language} store={store} />
+                                    </div>
                                 )
                             })
                         }
@@ -59,7 +61,7 @@ export const ResumeLanguagesEdit = () => {
                                 level: ''
                             })}
                         >
-                            Add Language
+                            {buttonTranslation('addfield')}
                         </button>
                     </div>
                     :
@@ -80,7 +82,7 @@ const ResumeLanguages = () => {
             {
                 languages.map(language => {
                     return (
-                        <div className='flex gap-2'>
+                        <div key={language.id} className='flex gap-2'>
                             <span className='font-bold'>{language.name}:</span>
                             <span>{language.level}</span>
                         </div>

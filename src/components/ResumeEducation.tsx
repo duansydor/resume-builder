@@ -1,6 +1,6 @@
 import { useBoundStore } from '@/store/store'
 import { useTranslations } from 'next-intl'
-import { EditEducationInputField} from './EditInputField'
+import { EditEducationInputField } from './EditInputField'
 import { uuid } from 'uuidv4'
 import { useState } from 'react'
 
@@ -21,7 +21,7 @@ export const ResumeEducationEdit = () => {
   return (
     <div className='w-full gap-2 flex flex-col  pt-2'>
       <div className='px-4 flex flex-row items-center justify-between w-full'>
-      <h1 className='text-md font-bold'>{translation('education')}</h1>
+        <h1 className='text-md font-bold'>{translation('education')}</h1>
         <div className='flex gap-2'>
           {isInLayout ? <button className='text-red-500' onClick={() => store.removeLayoutItem('education')}>{buttonTranslation('delete')}</button> : <button onClick={() => store.pushLayoutItem({ i: "education", x: 0, y: 0, w: 12, h: 2, maxH: 4, maxW: 12, minW: 12, static: false, isResizable: true })}>{buttonTranslation('add')}</button>}
           <button
@@ -47,7 +47,7 @@ export const ResumeEducationEdit = () => {
             {
               store.education.map(education => {
                 return (
-                  <EditEducationInputField education={education} store={store} />
+                  <EditEducationInputField key={education.id} education={education} store={store} />
                 )
               })
             }
@@ -61,7 +61,8 @@ export const ResumeEducationEdit = () => {
                 description: '',
               })}
             >
-              Add Education Field
+              {buttonTranslation('addfield')}
+
             </button>
           </div>
           : null}
@@ -78,7 +79,7 @@ const ResumeEducation = () => {
       <h1 className='text-2xl font-bold underline'>{translation('education')}</h1>
       {education.map((ed) => {
         return (
-          <div className='flex flex-col '>
+          <div key={ed.id} className='flex flex-col '>
             <span className='font-bold'>{ed.school}</span>
             <span>{ed.dateRange}</span>
             <span className=''>{ed.degree}</span>

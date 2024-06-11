@@ -18,7 +18,12 @@
         "delete":"deletar campo",
         "add":"Adicionar campo",
         "export":"Exportar para pdf",
-        "explanation":"Tip: you can drag and drop the components to change the order!"
+        "explanation":"Dica: Você pode arrastar e soltar os componentes do currículo para reordenar!",
+        "generateai":"Gerar com IA",
+        "addfield":"Adicionar campo",
+        "removefield":"Remover",
+        "generating":"Gerando...",
+        "generate":"Gerar Objetivo"
     },
     "Components":{
         "header":"Informações Pessoais",
@@ -31,6 +36,7 @@
         
         "name":"Nome",
         "role":"Área de atuação",
+        "skills":"Habilidades",
         "address":"Endereço",
         "phone":"Telefone",
         "email":"Email",

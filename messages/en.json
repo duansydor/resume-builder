@@ -17,7 +17,12 @@
         "delete":"Delete Field",
         "add":"Add Field",
         "export":"Export to pdf",
-        "explanation":"Dica: Você pode arrastar e soltar os componentes do currículo para reordenar!"
+        "explanation":"Tip: you can drag and drop the components to change the order!",
+        "generateai":"Generate with AI",
+        "addfield":"Add field",
+        "removefield":"Remove",
+        "generating":"Generating...",
+        "generate":"Generate goal"
 
     },
     "Components":{
@@ -29,7 +34,8 @@
     },
     "Fields":{
         "name":"Name",
-        "role":"Field Role",
+        "role":"Role",
+        "skills":"Skills",
         "address":"Address",
         "phone":"Telephone Number",
         "email":"Email",

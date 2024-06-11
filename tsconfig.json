@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/actions/generateGoal.js", "src/components/GenerateGoalComponent.tsx"  ],
   "exclude": [
     "node_modules"
   ]
