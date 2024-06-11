@@ -84,7 +84,17 @@ export const ResumeGoalEdit = () => {
               {
                 gemini &&
                 <div className='fixed w-96 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center bg-blue-200 border-2 border-blue-400 p-4 rounded-lg shadow-md z-50'>
-                  <form onSubmit={handleSubmit(onSubmitFunction)}>
+                  <form onSubmit={handleSubmit(onSubmitFunction)} className='flex flex-col items-center justify-center'>
+                  <button 
+                    className='my-4 h-8 w-8 bg-red-500 z-50 rounded-full text-md font-bold text-white place-self-center'
+                    onClick={()=>{
+                      setGemini(false)
+                      reset()
+                    }}
+                  >
+                    X
+                  </button>
+
                     <div className='flex flex-col'>
                       <label htmlFor="role">{fieldsTranslations('role')}:</label>
                       <input type="text" id="role" {...register('role')} />

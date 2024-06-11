@@ -64,7 +64,7 @@ const ResumeCanvas = () => {
 
         <div className={`relative ${triggerExport ? 'left-20' : '-ml-96'}`} id="mydiv">
           <GridLayout
-            isDraggable={false}
+            isDraggable={true}
             layout={boundedStore.layout}
             cols={12}
             width={720}

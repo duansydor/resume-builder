@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
-const genAI = new GoogleGenerativeAI("AIzaSyAaFRJRRUuwL2lLF0tNE2WKtfMAq6MPqPs");
+
+const genAI = new GoogleGenerativeAI(process.env.API_KEY?process.env.API_KEY:'');
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", generationConfig: { temperature: 0.7, maxOutputTokens: 100 } });
 
 // To handle a GET request to /api
@@ -16,15 +17,14 @@ export async function POST(request: NextRequest) {
 
   const data = await request.json()
    const role = data.role
-   const industry = data.industry
    const skills = data.skills
   const locale = data.locale
 
   const english = `Write ONLY a concise and impactful career goal statement for a resume. 
-             I am applying for roles as a ${role} in the ${industry} industry. 
+             I am applying for roles as a ${role}. 
              My key skills include ${skills}. DO NOT INCLUDE ANY INTRODUCTION OR CONCLUSION.`;
   const portuguese = `Escreva em portugês APENAS uma declaração de objetivo de carreira concisa e impactante para um currículo. 
-  Estou me candidatando a funções como ${role} na indústria de ${industry}. 
+  Estou me candidatando a funções como ${role}. 
   Minhas principais habilidades incluem ${skills}. NÃO INCLUA QUALQUER INTRODUÇÃO OU CONCLUSÃO.`;
 
 
