@@ -10,7 +10,7 @@ type layoutSlice = {
 const BasicLayout = [
     { i: "header", x: 0, y: 0, w: 12, h: 2, maxH: 2, minW: 12, static: false, isResizable: true },
     { i: "goal", x: 0, y: 0, w: 12, h: 2, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
-    { i: "education", x: 0, y: 0, w: 12, h: 2, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
+    { i: "education", x: 0, y: 0, w: 12, h: 4, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
     { i: "experiences", x: 0, y: 0, w: 12, h: 2, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
     { i: "languages", x: 0, y: 0, w: 12, h: 2, minW: 12, maxW: 12, maxH: 2, static: false, isResizable: true },
 ] as LayoutItemType[]

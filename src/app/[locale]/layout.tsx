@@ -28,7 +28,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
         <Header/>
           {children}
-        <div>Ain</div>
         </NextIntlClientProvider>
       </body>
     </html>

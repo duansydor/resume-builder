@@ -7,11 +7,20 @@ export const EditInputField = ({ name, value, store }: { name: string, value: st
     return (
         <>
             <label htmlFor={name}>{fieldsTranslation(name)}</label>
-            <input
+            {name === 'goals' ? <textarea
+                className="h-80 resize-none"
                 name={name}
                 defaultValue={value}
+                placeholder={fieldsTranslation('goals')}
+
                 onChange={e => store.setField(name, e.target.value)}
-            />
+            /> : <input
+                name={name}
+                placeholder={fieldsTranslation(name)}
+
+                defaultValue={value}
+                onChange={e => store.setField(name, e.target.value)}
+            />}
         </>
     )
 }
@@ -23,12 +32,16 @@ export const EditLanguageInputField = ({ language, store }: { language: Language
                 <label htmlFor="language">{fieldsTranslation('language')}</label>
                 <input
                     name="language"
+                    placeholder={fieldsTranslation('language')}
+
                     defaultValue={language.name}
                     onChange={e => store.setLanguage(language.id, { ...language, name: e.target.value })}
                 />
                 <label htmlFor='level'>{fieldsTranslation('level')}</label>
                 <input
                     name='level'
+                    placeholder={fieldsTranslation('level')}
+
                     defaultValue={language.level}
                     onChange={e => store.setLanguage(language.id, { ...language, level: e.target.value })}
                 />
@@ -46,23 +59,31 @@ export const EditExperienceInputField = ({ experience, store }: { experience: Ex
                 <label htmlFor="company">{fieldsTranslation('company')}</label>
                 <input
                     name="company"
+                    placeholder={fieldsTranslation('company')}
+                    
                     defaultValue={experience.company}
                     onChange={e => store.setExperience(experience.id, { ...experience, company: e.target.value})}
                 />
                 <label htmlFor="position">{fieldsTranslation('position')}</label>
                 <input
                     name="position"
+                    placeholder={fieldsTranslation('position')}
+
                     defaultValue={experience.position}
                     onChange={e => store.setExperience(experience.id, { ...experience, position: e.target.value})}
                 />
                 <label htmlFor="daterange">{fieldsTranslation('daterange')}</label>
                 <input
                     name="daterange"
+                    placeholder={fieldsTranslation('daterange')}
+                    
                     defaultValue={experience.dateRange}
                     onChange={e => store.setExperience(experience.id, { ...experience, dateRange: e.target.value})}
                 />
                 <label htmlFor="description">{fieldsTranslation('description')}</label>
                 <input
+                    placeholder={fieldsTranslation('description')}
+
                     name="description"
                     defaultValue={experience.description}
                     onChange={e => store.setExperience(experience.id, { ...experience, description: e.target.value})}
@@ -81,24 +102,31 @@ export const EditEducationInputField = ({ education, store }: { education: Educa
                 <label htmlFor="school">{fieldsTranslation('school')}</label>
                 <input
                     name="school"
+                    placeholder={fieldsTranslation('school')}
                     defaultValue={education.school}
                     onChange={e => store.setEducation(education.id, { ...education, school: e.target.value})}
                 />
-                <label htmlFor="position">{fieldsTranslation('degree')}</label>
+                <label htmlFor="degree">{fieldsTranslation('degree')}</label>
                 <input
-                    name="position"
+                    name="degree"
+                    placeholder={fieldsTranslation('degree')}
+
                     defaultValue={education.degree}
-                    onChange={e => store.setEducation(education.id, { ...education, position: e.target.value})}
+                    onChange={e => store.setEducation(education.id, { ...education, degree: e.target.value})}
                 />
                 <label htmlFor="daterange">{fieldsTranslation('daterange')}</label>
                 <input
                     name="daterange"
+                    placeholder={fieldsTranslation('daterange')}
+
                     defaultValue={education.dateRange}
                     onChange={e => store.setEducation(education.id, { ...education, dateRange: e.target.value})}
                 />
                 <label htmlFor="description">{fieldsTranslation('description')}</label>
                 <input
                     name="description"
+                    placeholder={fieldsTranslation('description')}
+
                     defaultValue={education.description}
                     onChange={e => store.setEducation(education.id, { ...education, description: e.target.value})}
                 />

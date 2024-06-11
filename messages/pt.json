@@ -3,13 +3,22 @@
         "logo":"Currículo"
     },
     "Index":{
-        "title":"Olá Mundo!"
+        "title": "Conquiste o Emprego dos Sonhos: Crie um Currículo de Destaque em Minutos",
+        "start":"Criar um novo currículo",
+        "loading":"Aguarde um momento, o template está sendo carregado"
+
     },
     "App":{
         "title":"Comece com um template",
         "condition":"Ou",
         "cta":"Modelo básico",
         "note":"Isto abrirá um modelo básico, você pode mudar mais tarde"
+    },
+    "Buttons":{
+        "delete":"deletar campo",
+        "add":"Adicionar campo",
+        "export":"Exportar para pdf",
+        "explanation":"Tip: you can drag and drop the components to change the order!"
     },
     "Components":{
         "header":"Informações Pessoais",
@@ -28,7 +37,7 @@
         "website":"Site",
         "linkedin":"Linkedin",
         "github":"Github",
-        "goal":"ex:Objetivo",
+        "goals":"ex:Objetivo",
         "language":"Idiomas",
         "level":"Nível",
         "company":"Empresa",

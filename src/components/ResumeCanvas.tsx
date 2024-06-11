@@ -8,8 +8,8 @@ import ResumeEducation from "./ResumeEducation";
 import ResumeExperience from "./ResumeExperience";
 import ResumeGoal from "./ResumeGoal";
 import jsPDF from "jspdf";
-import html2canvas from 'html2canvas';
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 
 const ComponentToRender = (index: string) => {
@@ -32,67 +32,60 @@ const ComponentToRender = (index: string) => {
 
 const ResumeCanvas = () => {
   const boundedStore = useBoundStore((state) => state)
+  const buttonTranslation = useTranslations('Buttons')
+
   const textContentRef = useRef<HTMLDivElement | null>(null);
   const [triggerExport, setTriggerExport] = useState(false);
+  const divToCapture = document.getElementById('mydiv');
+  const domtoimage = require('dom-to-image')
   useEffect(() => {
-    const handleExport = async () => {
-      if (textContentRef.current) { 
-        const canvas = await html2canvas(textContentRef.current);
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', 'a4'); 
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3986746031.
-        const imgProps = pdf.getImageProperties(imgData);
-        const zoomFactor = 1.7; 
-        const pdfWidth = pdf.internal.pageSize.getWidth() * zoomFactor;
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        pdf.save('download.pdf');
-      } else {
-        console.error("textContentRef is not yet attached");
-      }
-    };
-    // You might want to trigger handleExport based on some event, 
-    // like a button click. For now, let's just call it once for demonstration:
-    if (triggerExport) { // Only run if triggerExport is true
-      handleExport();
-      setTriggerExport(false); // Reset the trigger after export
-    }
-  }, [triggerExport]); 
-  return (
-    <div className='mt-20 w-screen min-h-screen overflow-scroll'>
-      <div className='flex gap-2 justify-end ml-auto mr-auto items-center w-96 z-50'>
-        <button onClick={() => setTriggerExport(true)}>Export</button>
-      </div>
-      <div ref={textContentRef} className={`pl-20 ${triggerExport?'':'ml-72'}`}>
-        <GridLayout
-          className=""
-          layout={boundedStore.layout}
-          cols={12}
-          width={720}
-          autoSize={true}
-          margin={[0, 5]}
-          rowHeight={100}
-          onLayoutChange={(layout: LayoutItemType[]) => {
-            boundedStore.setLayout(layout)
-          }}
-        >
-          {
-            boundedStore.layout.map((item) => {
-              return (
-                <div className={` z-0 w-[700px] ${triggerExport?'w-[1080px]':'border-2 border-primary'}`} key={item.i}>
-                  {ComponentToRender(item.i)}
-                  {
-                    triggerExport?null:
-                    <button className='z-50 absolute -right-16 top-0 bg-red-500 text-white p-1 rounded-md' onClick={e => {
-                    boundedStore.removeLayoutItem(item.i)
-                   }}>Delete</button>
-                  }
-                </div>
-              )
-            })
-          }
-        </GridLayout>
+    if (triggerExport) {
+      domtoimage.toPng(divToCapture)
+      .then(function (dataUrl: any) {
+        const pdf = new jsPDF();
 
+        pdf.addImage(dataUrl, 'PNG', 5, 10, 0, 0); // Adjust position as needed
+        pdf.save('download.pdf');
+      })
+      .catch(function (error:any) {
+        console.error('oops, something went wrong!', error);
+      });
+      setTriggerExport(false)
+    }
+  }, [triggerExport])
+  return (
+    <div ref={textContentRef} className='mt-20 w-screen min-h-screen flex flex-col items-center overflow-x-scroll'>
+      <div className='mb-10 flex flex-col items-center gap-2'>
+        <button className="bg-primary text-2xl p-2 text-white rounded-md w-fit" onClick={() => setTriggerExport(true)}>{buttonTranslation('export')}</button>
+        <span>{buttonTranslation('explanation')}</span>
+      </div>
+      <div className="">
+            
+        <div className={`relative ${triggerExport?'left-20':'-ml-96'}`} id="mydiv">
+          <GridLayout
+
+            layout={boundedStore.layout}
+            cols={12}
+            width={720}
+            autoSize={true}
+            margin={[0, 5]}
+            rowHeight={100}
+            onLayoutChange={(layout: LayoutItemType[]) => {
+              boundedStore.setLayout(layout)
+            }}
+          >
+            {
+              boundedStore.layout.map((item) => {
+                return (
+                  <div className={` z-0 w-[700px] ${triggerExport ? 'w-[1080px]' : 'border-2 border-primary'}`} key={item.i}>
+                    {ComponentToRender(item.i)}
+
+                  </div>
+                )
+              })
+            }
+          </GridLayout>
+        </div>
       </div>
     </div>
   )

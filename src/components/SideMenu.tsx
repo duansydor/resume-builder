@@ -8,7 +8,7 @@ import { ResumeLanguagesEdit } from './ResumeLanguages';
 
 
 const SideMenu = () => {
-    const [hidden,setHidden] = useState(true)
+    const [hidden,setHidden] = useState(false)
 
     return (
         <div className='absolute'
@@ -22,7 +22,7 @@ const SideMenu = () => {
                 <ResumeLanguagesEdit/>
             </div>
             <button 
-            className={`${hidden?'ml-10':null} transition-all duration-500 z-50 fixed top-1/2 -translate-y-1/2 ml-96 w-10 h-10 rounded-full bg-primary text-2xl font-bold text-white`}
+            className={`${hidden?'-left-[350px]':'left-0'} transition-all duration-500 z-50 fixed top-1/2 -translate-y-1/2 ml-96 w-10 h-10 rounded-full bg-primary text-2xl font-bold text-white`}
             onClick={()=>setHidden(!hidden)}
             >{hidden?'<':'>'}</button>
         </div >

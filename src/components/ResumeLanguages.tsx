@@ -6,7 +6,9 @@ import { uuid } from 'uuidv4'
 
 export const ResumeLanguagesEdit = () => {
     const translation = useTranslations('Components')
-    const [colapse, setColapse] = useState(false)
+    const buttonTranslation = useTranslations('Buttons')
+
+    const [colapse, setColapse] = useState(true)
     const store = useBoundStore((state) => state)
 
 
@@ -19,9 +21,9 @@ export const ResumeLanguagesEdit = () => {
     return (
         <div className='w-full gap-2 flex flex-col  pt-2'>
             <div className='px-4 flex flex-row items-center justify-between w-full'>
-                <h1 className='text-2xl font-bold'>{translation('languages')}</h1>
+                <h1 className='text-md font-bold'>{translation('languages')}</h1>
                 <div className='flex gap-2'>
-                    {isInLayout ? <button className='text-red-500' onClick={() => store.removeLayoutItem('languages')}>Delete</button> : <button onClick={() => store.pushLayoutItem({ i: "languages", x: 0, y: 0, w: 12, h: 2, maxH: 2, maxW: 12, minW: 12, static: false, isResizable: true })}>Add</button>}
+                    {isInLayout ? <button className='text-red-500' onClick={() => store.removeLayoutItem('languages')}>{buttonTranslation('delete')}</button> : <button onClick={() => store.pushLayoutItem({ i: "languages", x: 0, y: 0, w: 12, h: 2, maxH: 2, maxW: 12, minW: 12, static: false, isResizable: true })}>{buttonTranslation('add')}</button>}
                     <button
                         className={`h-fit w-8 rounded-md text-lg font-bold text-white ${colapse && isInLayout ? 'bg-red-500' : 'bg-primary'}`}
                         onClick={handleClickButton}

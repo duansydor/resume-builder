@@ -3,13 +3,22 @@
         "logo": "Resume"
     },
     "Index": {
-        "title": "Hello World!"
+        "title":"Land Your Dream Job: Build a Stand-Out Resume in Minutes",
+        "start":"Start a new resume",
+        "loading":"Wait a moment, the template is loading..."
     },
     "App":{
         "title":"Start with a template",
         "condition":"Or",
         "cta":"Start blank",
         "note":"It will open a default model, you can always change it later"
+    },
+    "Buttons":{
+        "delete":"Delete Field",
+        "add":"Add Field",
+        "export":"Export to pdf",
+        "explanation":"Dica: Você pode arrastar e soltar os componentes do currículo para reordenar!"
+
     },
     "Components":{
         "header":"Personal Information",
@@ -29,7 +38,7 @@
         "github":"Link to Github",
         "language":"Languages",
         "level":"Level",
-        "goal":"e.g:Goal",
+        "goals":"e.g:Goal",
         "company":"Company",
         "position":"Position",
         "daterange":"Date Range",

@@ -9,7 +9,8 @@ import { EditInputField } from './EditInputField';
 
 export const ResumeHeaderEdit = () => {
     const translation = useTranslations('Components')
-    const [colapse, setColapse] = useState(false)
+    const buttonTranslation = useTranslations('Buttons')
+    const [colapse, setColapse] = useState(true)
     const store = useBoundStore((state) => state)
 
 
@@ -22,9 +23,9 @@ export const ResumeHeaderEdit = () => {
     return (
         <div className='w-full gap-2 flex flex-col  pt-2'>
             <div className='px-4 flex flex-row items-center justify-between w-full'>
-                <h1 className='text-2xl font-bold'>{translation('header')}</h1>
+                <h1 className='text-md font-bold w-10'>{translation('header')}</h1>
                 <div className='flex gap-2'>
-                    {isInLayout ? <button className='text-red-500' onClick={() => store.removeLayoutItem('header')}>Delete</button> : <button onClick={() => store.pushLayoutItem({ i: "header", x: 0, y: 0, w: 12, h: 2, maxH: 2, maxW: 12, minW: 12, static: false, isResizable: true })}>Add</button>}
+                    {isInLayout ? <button className='text-red-500' onClick={() => store.removeLayoutItem('header')}>{buttonTranslation('delete')}</button> : <button onClick={() => store.pushLayoutItem({ i: "header", x: 0, y: 0, w: 12, h: 2, maxH: 2, maxW: 12, minW: 12, static: false, isResizable: true })}>{buttonTranslation('add')}</button>}
                     <button
                         className={`h-fit w-8 rounded-md text-lg font-bold text-white ${colapse && isInLayout ? 'bg-red-500' : 'bg-primary'}`}
                         onClick={handleClickButton}
@@ -70,15 +71,15 @@ const ResumeHeader = () => {
 
 
     return (
-        <div className='flex'>
-            <div className='flex flex-col p-2'>
+        <div className='flex w-full'>
+            <div className='flex flex-col p-2 w-full'>
                 <h1 className='text-2xl font-bold'>
                     {fields.name}
                 </h1>
                 <span className='mb-2'>{fields.role}</span>
-                <span>{fields.address}</span>
-                <span>{fields.phone}</span>
-                <span>{fields.email}</span>
+                <span className='w-full'>{fields.address}</span>
+                <span className='w-full'>{fields.phone}</span>
+                <span className='w-full'>{fields.email}</span>
 
             </div>
         </div>

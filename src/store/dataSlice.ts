@@ -2,36 +2,36 @@ import { BasicFieldsType, EducationType, ExperienceType, LanguagesFieldsType } f
 
 
 const basicFields:BasicFieldsType = {
-  name: 'John Doe',
-  role: 'Web Designer',
-  address: '123 Main Street, Anytown, CA 12345',
-  phone: '(123) 456-7890',
-  email: 'john.doe@email.com',
-  goals: 'To Manage this enterprise',
+  name: '',
+  role: '',
+  address: '',
+  phone: '',
+  email: '',
+  goals: '',
 }
 const languagesFields: LanguagesFieldsType[] = [
   {
     id: '1',
-    name: 'English',
-    level: 'Basic'
+    name: '',
+    level: ''
   }
 ]
 const experiencesFields:ExperienceType[] = [
   {
     id:'1',
-    company:'CompanyFake',
-    position:'to fake fake news',
-    dateRange:'2021-2022',
-    description:'Using fake news to expread the fake philosophy'
+    company:'',
+    position:'',
+    dateRange:'',
+    description:''
   }
 ]
 const educationFields:EducationType[] = [
   {
     id:'1',
-    school:'University Test',
-    degree:'1st degree',
-    dateRange:'2021-2022',
-    description:'Some description'
+    school:'',
+    degree:'',
+    dateRange:'',
+    description:''
   }
 ]
 type BasicFieldsSliceType = {
